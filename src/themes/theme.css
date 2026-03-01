@@ -1,0 +1,30 @@
+@import '../../node_modules/preline/css/themes/theme.css';
+
+@theme {
+	--font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+		'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+	--text-2xl: 1.5rem;
+	--text-2xl--line-height: calc(2 / 1.5);
+	--text-3xl: 1.875rem;
+	--text-3xl--line-height: calc(2.25 / 1.875);
+	--text-4xl: 2.25rem;
+	--text-4xl--line-height: calc(2.5 / 2.25);
+
+
+}
+
+:root {
+	--app-root-font-size: 16px;
+	--app-body-line-height: 1.7;
+	--app-body-font-weight: 400;
+}
+
+html {
+	font-size: var(--app-root-font-size);
+}
+
+body {
+	line-height: var(--app-body-line-height);
+	font-weight: var(--app-body-font-weight);
+}
