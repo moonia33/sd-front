@@ -34,9 +34,9 @@
 				<img class="rounded-xl" src={imageUrl || fallbackImage} alt="Avatar" />
 
 				<!-- SVG Element -->
-				<div class="absolute start-0 bottom-0 -z-1 -translate-x-14 translate-y-10">
+				<div class="absolute inset-s-0 bottom-0 -z-1 -translate-x-14 translate-y-10">
 					<svg
-						class="h-auto max-w-40 text-gray-400 dark:text-neutral-500"
+						class="h-auto max-w-40 text-gray-100 dark:text-neutral-500"
 						width="696"
 						height="653"
 						viewBox="0 0 696 653"
@@ -103,7 +103,7 @@
 			<!-- Blockquote -->
 			<blockquote class="relative">
 				<svg
-					class="absolute start-0 top-0 size-24 -translate-x-8 -translate-y-4 transform text-gray-800/20 dark:text-neutral-200/20"
+					class="absolute inset-s-0 top-0 size-24 -translate-x-8 -translate-y-4 transform text-gray-800/20 dark:text-neutral-200/20"
 					width="16"
 					height="16"
 					viewBox="0 0 16 16"
@@ -118,7 +118,7 @@
 				</svg>
 
 				<div class="relative z-10">
-					<p class="mb-3 text-xs font-semibold text-gray-400 uppercase dark:text-neutral-500">
+					<p class="mb-3 text-xs font-semibold text-gray-500 uppercase dark:text-neutral-500">
 						{santrauka}
 					</p>
 

@@ -53,13 +53,13 @@
 	<div class="mb-10 max-w-3xl lg:mb-14">
 		{#if heading}
 			<h2
-				class="text-2xl font-semibold text-gray-800 md:text-2xl md:leading-tight dark:text-neutral-200"
+				class="text-2xl font-semibold text-gray-900 md:text-2xl md:leading-tight dark:text-neutral-200"
 			>
 				{heading}
 			</h2>
 		{/if}
 		{#if descriptionHtml}
-			<div class="mt-1 text-gray-500 dark:text-neutral-400">{@html descriptionHtml}</div>
+			<div class="mt-1 text-gray-700 dark:text-neutral-400">{@html descriptionHtml}</div>
 		{/if}
 	</div>
 	<!-- End Title -->
@@ -82,7 +82,7 @@
 								>
 									{area.title}
 								</h3>
-								<p class="text-sm text-gray-500 dark:text-neutral-400">{area.description}</p>
+								<p class="text-sm text-gray-600 dark:text-neutral-400">{area.description}</p>
 							</div>
 							{#if Icon}
 								<div>
@@ -103,7 +103,7 @@
 						<div class="flex items-center justify-between gap-x-3">
 							<div class="grow">
 								<h3 class="font-semibold text-gray-800 dark:text-neutral-200">{area.title}</h3>
-								<p class="text-sm text-gray-500 dark:text-neutral-400">{area.description}</p>
+								<p class="text-sm text-gray-600 dark:text-neutral-400">{area.description}</p>
 							</div>
 							{#if Icon}
 								<div>

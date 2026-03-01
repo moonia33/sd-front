@@ -27,7 +27,7 @@
 	<div class="mb-10 grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-4">
 		<div class="col-span-full hidden lg:col-span-1 lg:block">
 			<a
-				class="flex-none text-xl font-semibold text-gray-800 focus:opacity-80 focus:outline-hidden dark:text-neutral-200"
+				class="flex-none text-xl font-semibold text-gray-800 focus:opacity-80 focus-visible:outline-current focus-visible:outline-2 focus-visible:outline-offset-2 dark:text-neutral-200"
 				href={resolve('/')}
 				aria-label={site?.site_name ?? 'Brand'}
 			>
@@ -41,7 +41,7 @@
 				<div class="mt-4 grid gap-2 text-sm">
 					{#if site?.contact_email}
 						<a
-							class="text-gray-600 hover:text-gray-800 focus:text-gray-800 focus:outline-hidden dark:text-neutral-300 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
+							class="text-gray-600 hover:text-gray-800 focus:text-gray-800 focus-visible:outline-current focus-visible:outline-2 focus-visible:outline-offset-2 dark:text-neutral-300 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
 							href={`mailto:${site.contact_email}`}
 						>
 							{site.contact_email}
@@ -49,7 +49,7 @@
 					{/if}
 					{#if site?.contact_phone}
 						<a
-							class="text-gray-600 hover:text-gray-800 focus:text-gray-800 focus:outline-hidden dark:text-neutral-300 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
+							class="text-gray-600 hover:text-gray-800 focus:text-gray-800 focus-visible:outline-current focus-visible:outline-2 focus-visible:outline-offset-2 dark:text-neutral-300 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
 							href={`tel:${site.contact_phone}`}
 						>
 							{site.contact_phone}
@@ -72,7 +72,7 @@
 							{#if link.href}
 								<p>
 									<a
-										class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800 focus:outline-hidden dark:text-neutral-300 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
+										class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800 focus-visible:outline-current focus-visible:outline-2 focus-visible:outline-offset-2 dark:text-neutral-300 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
 										href={isInternalHref(link.href) ? withBase(link.href) : link.href}
 									>
 										{link.title}
@@ -83,7 +83,7 @@
 					{:else if section.href}
 						<p>
 							<a
-								class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800 focus:outline-hidden dark:text-neutral-300 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
+								class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800 focus-visible:outline-current focus-visible:outline-2 focus-visible:outline-offset-2 dark:text-neutral-300 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
 								href={isInternalHref(section.href) ? withBase(section.href) : section.href}
 							>
 								{section.title}
@@ -105,7 +105,7 @@
 						{#each site.profiles as p (p.link)}
 							{#if p?.link}
 								<a
-									class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800 focus:outline-hidden dark:text-neutral-300 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
+									class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800 focus-visible:outline-current focus-visible:outline-2 focus-visible:outline-offset-2 dark:text-neutral-300 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
 									href={p.link}
 									target="_blank"
 									rel="noreferrer"
@@ -120,7 +120,7 @@
 
 			<div class="mt-3 sm:hidden">
 				<a
-					class="flex-none text-xl font-semibold text-gray-800 focus:opacity-80 focus:outline-hidden dark:text-neutral-200"
+					class="flex-none text-xl font-semibold text-gray-800 focus:opacity-80 focus-visible:outline-current focus-visible:outline-2 focus-visible:outline-offset-2 dark:text-neutral-200"
 					href={resolve('/')}
 					aria-label={site?.site_name ?? 'Brand'}
 				>

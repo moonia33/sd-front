@@ -134,31 +134,44 @@
 		{/if}
 	{/if}
 </svelte:head>
-<main id="content">
-	<div class="overflow-hidden">
-		<header
-			class="bg-navbar border-navbar-line sticky top-0 z-50 flex w-full flex-wrap border-b py-2 md:flex-nowrap md:justify-start"
-		>
-			<Navigation
-				siteName={data?.site?.site_name ?? undefined}
-				logoUrl={data?.siteAssets?.logoDefaultUrl ?? undefined}
-				logoTitle={data?.site?.site_name ?? undefined}
-				menuItems={data?.navigation?.main ?? []}
-			/>
-		</header>
+
+<a
+	href="#content"
+	class="sr-only focus:not-sr-only focus-visible:outline-current focus-visible:outline-2 focus-visible:outline-offset-2 bg-background text-foreground border-layer-line fixed top-2 left-2 z-[60] rounded-md border px-3 py-2"
+>
+	Pereiti prie turinio
+</a>
+
+<div class="overflow-hidden">
+	<header
+		class="bg-navbar border-navbar-line sticky top-0 z-50 flex w-full flex-wrap border-b py-2 md:flex-nowrap md:justify-start"
+	>
+		<Navigation
+			siteName={data?.site?.site_name ?? undefined}
+			logoUrl={data?.siteAssets?.logoDefaultUrl ?? undefined}
+			logoTitle={data?.site?.site_name ?? undefined}
+			menuItems={data?.navigation?.main ?? []}
+		/>
+	</header>
+
+	<main id="content" tabindex="-1">
 		{@render children()}
-		<footer class="dark:bg-inverse mt-auto w-full bg-slate-200">
-			<hr />
-			<Footer site={data?.site ?? null} menuItems={data?.navigation?.footer ?? []} />
-		</footer>
-	</div>
-	<BackToTop />
-	{#if data?.site?.footer_scripts}
-		{@const footerScripts = normalizeBodyScripts(data.site.footer_scripts)}
-		{#if footerScripts}
-			{@html footerScripts}
-		{/if}
+	</main>
+
+	<footer class="dark:bg-inverse mt-auto w-full bg-slate-200">
+		<hr />
+		<Footer site={data?.site ?? null} menuItems={data?.navigation?.footer ?? []} />
+	</footer>
+</div>
+
+<BackToTop />
+
+{#if data?.site?.footer_scripts}
+	{@const footerScripts = normalizeBodyScripts(data.site.footer_scripts)}
+	{#if footerScripts}
+		{@html footerScripts}
 	{/if}
+{/if}
 
 	<!-- Subtle navigation progress bar -->
 	<div aria-hidden="true" class="pointer-events-none fixed top-0 left-0 z-50 h-0.5 w-full">
@@ -168,4 +181,3 @@
 			style:transform={`scaleX(${progress})`}
 		></div>
 	</div>
-</main>

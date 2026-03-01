@@ -46,7 +46,7 @@
 {#if visible}
 	<button
 		type="button"
-		class="fixed right-6 bottom-6 z-50 inline-flex size-12 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-900 shadow-2xs hover:bg-gray-50 focus:bg-gray-50 focus:outline-hidden dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+		class="fixed right-6 bottom-6 z-50 inline-flex size-12 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-900 shadow-2xs hover:bg-gray-50 focus:bg-gray-50 focus-visible:outline-current focus-visible:outline-2 focus-visible:outline-offset-2 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
 		aria-label="Grįžti į puslapio viršų"
 		onclick={scrollToTop}
 	>
