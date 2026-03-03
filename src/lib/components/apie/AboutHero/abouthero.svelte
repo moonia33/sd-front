@@ -26,9 +26,9 @@
 </script>
 
 <!-- Testimonials -->
-<div class="mx-auto max-w-5xl px-4 py-12 lg:py-20">
+<div class="mx-auto max-w-340 px-4 py-12 lg:py-20">
 	<!-- Grid -->
-	<div class="md:grid md:grid-cols-2 md:items-center md:gap-10 lg:gap-16">
+	<div class="md:grid md:grid-cols-3 md:items-center md:gap-10 lg:gap-16">
 		<div class="mb-24 hidden sm:px-6 md:mb-0 md:block">
 			<div class="relative">
 				<img class="rounded-xl" src={imageUrl || fallbackImage} alt="Avatar" />
@@ -99,7 +99,7 @@
 		</div>
 		<!-- End Col -->
 
-		<div>
+		<div class="col-span-2">
 			<!-- Blockquote -->
 			<blockquote class="relative">
 				<svg
@@ -133,7 +133,7 @@
 							<img class="size-12 rounded-full" src={imageUrl || fallbackImage} alt="Avatar" />
 						</div>
 						<div class="ms-4 md:ms-0">
-							<div class="text-base font-semibold text-gray-800 dark:text-neutral-200">
+							<div class="font-script text-5xl text-gray-800 dark:text-neutral-200">
 								{legalName}
 							</div>
 							<div class="text-xs text-gray-600 dark:text-neutral-300">

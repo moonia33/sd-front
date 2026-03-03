@@ -11,7 +11,7 @@
 </script>
 
 <!-- Testimonials with Stats -->
-<div class="mx-auto max-w-5xl px-4 py-12 lg:py-20">
+<div class="mx-auto max-w-340 px-4 py-12 lg:py-20">
 	<!-- Grid -->
 	<div class="lg:grid lg:grid-cols-12 lg:items-center lg:justify-between lg:gap-16">
 		<div class="lg:col-span-5 lg:col-start-1">

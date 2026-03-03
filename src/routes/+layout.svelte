@@ -137,7 +137,7 @@
 
 <a
 	href="#content"
-	class="sr-only focus:not-sr-only focus-visible:outline-current focus-visible:outline-2 focus-visible:outline-offset-2 bg-background text-foreground border-layer-line fixed top-2 left-2 z-[60] rounded-md border px-3 py-2"
+	class="bg-background text-foreground border-layer-line sr-only fixed top-2 left-2 z-[60] rounded-md border px-3 py-2 focus:not-sr-only focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
 >
 	Pereiti prie turinio
 </a>
@@ -173,11 +173,11 @@
 	{/if}
 {/if}
 
-	<!-- Subtle navigation progress bar -->
-	<div aria-hidden="true" class="pointer-events-none fixed top-0 left-0 z-50 h-0.5 w-full">
-		<div
-			class="bg-primary h-full origin-left transition-[transform,opacity] duration-300 ease-out"
-			style:opacity={isNavigating ? 1 : 0}
-			style:transform={`scaleX(${progress})`}
-		></div>
-	</div>
+<!-- Subtle navigation progress bar -->
+<div aria-hidden="true" class="pointer-events-none fixed top-0 left-0 z-50 h-0.5 w-full">
+	<div
+		class="bg-primary h-full origin-left transition-[transform,opacity] duration-300 ease-out"
+		style:opacity={isNavigating ? 1 : 0}
+		style:transform={`scaleX(${progress})`}
+	></div>
+</div>

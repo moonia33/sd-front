@@ -54,7 +54,7 @@
 	<div class="relative md:flex md:items-center md:justify-between">
 		<div class="flex items-center justify-between">
 			<a
-				class="flex-none focus:opacity-80 focus-visible:outline-current focus-visible:outline-2 focus-visible:outline-offset-2"
+				class="flex-none focus:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
 				href={resolve('/')}
 				aria-label={siteName ?? 'Home'}
 			>
@@ -74,7 +74,7 @@
 				<DarkMode />
 				<button
 					type="button"
-					class="hs-collapse-toggle border-layer-line text-layer-foreground hover:bg-muted-hover focus:bg-muted-focus ml-2 flex size-9 items-center justify-center rounded-lg border text-sm font-semibold focus-visible:outline-current focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50"
+					class="hs-collapse-toggle border-layer-line text-layer-foreground hover:bg-muted-hover focus:bg-muted-focus ml-2 flex size-9 items-center justify-center rounded-lg border text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current disabled:pointer-events-none disabled:opacity-50"
 					id="hs-navbar-page-demo-pricing-collapse"
 					aria-expanded="false"
 					aria-controls="hs-navbar-page-demo-pricing"
@@ -136,7 +136,7 @@
 							>
 								<button
 									type="button"
-									class="text-navbar-nav-foreground hover:text-muted-foreground-1 focus:text-muted-foreground-1 flex w-full items-center font-medium focus-visible:outline-current focus-visible:outline-2 focus-visible:outline-offset-2"
+									class="text-navbar-nav-foreground hover:text-muted-foreground-1 focus:text-muted-foreground-1 flex w-full items-center font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
 									aria-haspopup="menu"
 									aria-expanded="false"
 								>
@@ -173,7 +173,7 @@
 														{#if child.href}
 															{@const Icon = resolveIcon(child.iconName)}
 															<a
-																class="group text-navbar-nav-foreground hover:bg-navbar-nav-hover focus:bg-navbar-nav-focus flex gap-x-4 rounded-lg p-3 focus-visible:outline-current focus-visible:outline-2 focus-visible:outline-offset-2"
+																class="group text-navbar-nav-foreground hover:bg-navbar-nav-hover focus:bg-navbar-nav-focus flex gap-x-4 rounded-lg p-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
 																href={isInternalHref(child.href)
 																	? withBase(child.href)
 																	: child.href}
@@ -201,7 +201,7 @@
 														{#if child.href}
 															{@const Icon = resolveIcon(child.iconName)}
 															<a
-																class="group text-navbar-nav-foreground hover:bg-navbar-nav-hover focus:bg-navbar-nav-focus flex gap-x-4 rounded-lg p-3 focus-visible:outline-current focus-visible:outline-2 focus-visible:outline-offset-2"
+																class="group text-navbar-nav-foreground hover:bg-navbar-nav-hover focus:bg-navbar-nav-focus flex gap-x-4 rounded-lg p-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
 																href={isInternalHref(child.href)
 																	? withBase(child.href)
 																	: child.href}

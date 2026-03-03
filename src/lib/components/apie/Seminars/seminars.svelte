@@ -47,7 +47,7 @@
 </script>
 
 <!-- Table Section -->
-<div class="mx-auto max-w-5xl px-4 py-12 lg:py-20">
+<div class="mx-auto max-w-340 px-4 py-12 lg:py-20">
 	<!-- Card -->
 	<div class="flex flex-col">
 		<div

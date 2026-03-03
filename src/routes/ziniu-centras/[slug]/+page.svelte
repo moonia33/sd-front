@@ -37,7 +37,7 @@
 />
 
 <div
-	class="mx-auto mb-8 max-w-5xl rounded-2xl bg-slate-100 px-4 pt-6 pb-12 sm:px-6 lg:px-8 lg:pt-10 dark:bg-gray-950"
+	class="mx-auto mb-8 max-w-340 rounded-2xl bg-slate-100 px-4 pt-6 pb-12 sm:px-6 lg:px-8 lg:pt-10 dark:bg-gray-950"
 >
 	<header class="space-y-3">
 		<h1 class="text-2xl font-bold text-gray-800 md:text-3xl dark:text-neutral-200">
@@ -89,7 +89,7 @@
 	{/if}
 
 	{#if data.article.contentHtml}
-		<div class="prose mt-8 max-w-none dark:prose-invert">
+		<div class="mt-8">
 			{@html data.article.contentHtml}
 		</div>
 	{:else}

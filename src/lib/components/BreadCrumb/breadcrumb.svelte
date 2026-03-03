@@ -103,7 +103,7 @@
 	</svg>
 
 	<div class="relative z-10">
-		<div class="mx-auto max-w-5xl px-4 xl:px-0">
+		<div class="mx-auto max-w-340 px-4 xl:px-0">
 			<div class="my-4 pb-4">
 				<ol class="flex items-center whitespace-nowrap">
 					{#each items as item, index (item.label)}

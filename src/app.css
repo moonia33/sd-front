@@ -1,10 +1,12 @@
 @import '@fontsource-variable/inter';
+@import '@fontsource/italianno';
 @import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/aspect-ratio';
 
 @import '../node_modules/preline/variants.css';
 @source '../node_modules/preline/dist/*.js';
@@ -15,12 +17,99 @@
     }
 }
 
+@layer utilities {
+    .font-script {
+        font-family: var(--font-script);
+    }
+}
+
+@layer components {
+    .markdown {
+        @apply text-foreground;
+    }
+
+    .markdown> :first-child {
+        margin-top: 0;
+    }
+
+    .markdown> :last-child {
+        margin-bottom: 0;
+    }
+
+    .markdown :where(p) {
+        @apply my-4 leading-relaxed;
+    }
+
+    .markdown :where(h1) {
+        @apply mt-8 mb-4 text-3xl font-semibold leading-tight;
+    }
+
+    .markdown :where(h2) {
+        @apply mt-7 mb-3 text-2xl font-semibold leading-tight;
+    }
+
+    .markdown :where(h3) {
+        @apply mt-6 mb-3 text-xl font-semibold leading-tight;
+    }
+
+    .markdown :where(h4) {
+        @apply mt-5 mb-2 text-lg font-semibold leading-tight;
+    }
+
+    .markdown :where(h5) {
+        @apply mt-5 mb-2 text-base font-semibold leading-tight;
+    }
+
+    .markdown :where(h6) {
+        @apply mt-5 mb-2 text-sm font-semibold leading-tight;
+    }
+
+    .markdown :where(hr) {
+        @apply my-8 border-t border-layer-line;
+    }
+
+    .markdown :where(ul) {
+        @apply my-4 list-disc ps-5 space-y-2;
+    }
+
+    .markdown :where(ol) {
+        @apply my-4 list-decimal ps-5 space-y-2;
+    }
+
+    .markdown :where(li) {
+        @apply leading-relaxed;
+    }
+
+    .markdown :where(a) {
+        @apply underline underline-offset-2;
+    }
+
+    .markdown :where(a:hover) {
+        @apply opacity-80;
+    }
+
+    .markdown :where(blockquote) {
+        @apply my-4 border-s-4 border-layer-line ps-4;
+    }
+
+    .markdown :where(pre) {
+        @apply my-4 overflow-x-auto rounded-lg border border-layer-line bg-muted p-4;
+    }
+
+    .markdown :where(code) {
+        @apply rounded bg-muted px-1 py-0.5;
+    }
+
+    .markdown :where(pre code) {
+        @apply bg-transparent p-0;
+    }
+}
+
 /* Optional plugins */
 /* @import "preline/src/plugins/datepicker/styles.css"; */
 
 /* Third-party plugins */
-/* @plugin "@tailwindcss/forms"; */
-/* @plugin "@tailwindcss/aspect-ratio"; */
+@plugin "@tailwindcss/forms";
 
 /* Preline Themes */
 @import './themes/theme.css';

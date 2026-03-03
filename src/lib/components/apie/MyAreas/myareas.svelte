@@ -48,7 +48,7 @@
 </script>
 
 <!-- Card Section -->
-<div class="mx-auto max-w-5xl px-4 py-12 lg:py-20">
+<div class="mx-auto max-w-340 px-4 py-12 lg:py-20">
 	<!-- Title -->
 	<div class="mb-10 max-w-3xl lg:mb-14">
 		{#if heading}

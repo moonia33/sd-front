@@ -22,7 +22,7 @@
 
 <Breadcrumb items={[{ label: 'Pagrindinis', href: '/' }, { label: 'Žinių centras' }]} />
 
-<div class="mx-auto max-w-5xl px-4 pt-6 pb-12 sm:px-6 lg:px-8 lg:pt-10">
+<div class="mx-auto max-w-340 px-4 pt-6 pb-12 sm:px-6 lg:px-8 lg:pt-10">
 	<h1 class="text-2xl font-bold text-gray-800 md:text-3xl dark:text-neutral-200">Žinių centras</h1>
 
 	{#if data.articles.length === 0}
@@ -30,7 +30,9 @@
 	{:else}
 		<div class="mt-6 space-y-4">
 			{#each data.articles as article (article.slug)}
-				<article class="rounded-xl border border-gray-200 bg-white p-5 dark:border-neutral-700 dark:bg-neutral-900">
+				<article
+					class="rounded-xl border border-gray-200 bg-white p-5 dark:border-neutral-700 dark:bg-neutral-900"
+				>
 					<div class="flex items-start justify-between gap-6">
 						<div class="min-w-0">
 							<a
@@ -45,10 +47,14 @@
 							{/if}
 
 							{#if article.shortDescription}
-								<p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">{article.shortDescription}</p>
+								<p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
+									{article.shortDescription}
+								</p>
 							{/if}
 
-							<div class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-500 dark:text-neutral-400">
+							<div
+								class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-500 dark:text-neutral-400"
+							>
 								{#if data.authorName}
 									<span>{data.authorName}</span>
 									<span aria-hidden="true">•</span>
@@ -61,7 +67,9 @@
 							{#if article.tags.length > 0}
 								<div class="mt-3 flex flex-wrap gap-2">
 									{#each article.tags as tag (tag)}
-										<span class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-800 dark:bg-neutral-700 dark:text-neutral-200">
+										<span
+											class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-800 dark:bg-neutral-700 dark:text-neutral-200"
+										>
 											{tag}
 										</span>
 									{/each}
