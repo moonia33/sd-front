@@ -125,9 +125,9 @@ export const load: PageServerLoad = async ({ fetch }) => {
 		try {
 			cards = await directus.request(
 				readItems('why_us_items', {
-					filter: { id: { _in: statsCardIds } },
+					filter: { id: { _in: statsCardIds }, status: { _eq: 'published' } },
 					limit: 50,
-					fields: ['id', 'stats', 'description']
+					fields: ['id', 'stats', 'description', 'status']
 				})
 			);
 		} catch (cause) {
@@ -141,12 +141,12 @@ export const load: PageServerLoad = async ({ fetch }) => {
 			.filter((card): card is WhyUsItem => Boolean(card));
 	}
 
-	if (orderedStatsCards.length !== 4) {
-		console.error('WhyUs expects exactly 4 stats cards', {
+	orderedStatsCards = orderedStatsCards.slice(0, 4);
+	if (statsCardIds.length > 0 && orderedStatsCards.length < 4) {
+		console.warn('WhyUs stats cards count is less than 4 (showing available)', {
 			statsCardIds,
 			resolvedCount: orderedStatsCards.length
 		});
-		throw error(502, 'CMS konfigūracija neteisinga (statistikos kortelės)');
 	}
 
 	const whyUs: WhyUsData = {

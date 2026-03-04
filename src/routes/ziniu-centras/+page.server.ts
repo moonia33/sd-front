@@ -20,9 +20,52 @@ export type ArticleListItem = {
 };
 
 function normalizeTags(raw: unknown): string[] {
-	if (Array.isArray(raw)) return raw.filter((t): t is string => typeof t === 'string');
-	if (typeof raw === 'string' && raw.trim()) return [raw];
-	return [];
+	const tags: string[] = [];
+	const seen = new Set<string>();
+
+	const push = (value: string) => {
+		const clean = value.trim();
+		if (!clean || seen.has(clean)) return;
+		seen.add(clean);
+		tags.push(clean);
+	};
+
+	if (typeof raw === 'string') {
+		push(raw);
+		return tags;
+	}
+
+	if (!Array.isArray(raw)) return tags;
+
+	for (const entry of raw) {
+		if (typeof entry === 'string') {
+			push(entry);
+			continue;
+		}
+
+		if (!entry || typeof entry !== 'object') continue;
+		const obj = entry as Record<string, unknown>;
+
+		const direct = obj.name;
+		if (typeof direct === 'string') {
+			push(direct);
+			continue;
+		}
+
+		const tagsId = obj.tags_id;
+		if (tagsId && typeof tagsId === 'object') {
+			const name = (tagsId as { name?: unknown }).name;
+			const slug = (tagsId as { slug?: unknown }).slug;
+			if (typeof name === 'string') push(name);
+			else if (typeof slug === 'string') push(slug);
+			continue;
+		}
+
+		const slug = obj.slug;
+		if (typeof slug === 'string') push(slug);
+	}
+
+	return tags;
 }
 
 export const load: PageServerLoad = async ({ fetch }) => {
@@ -52,7 +95,9 @@ export const load: PageServerLoad = async ({ fetch }) => {
 					'date_created',
 					'date_updated',
 					'image',
-					'tags',
+					'tags.tags_id.id',
+					'tags.tags_id.name',
+					'tags.tags_id.slug',
 					'status'
 				]
 			})

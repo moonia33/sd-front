@@ -1,3 +1,27 @@
+areas (sritys) implementacija
+statc pavyzdys route/areas-example
+
+tikras route:
+
+/rout/[..path]
+
+hero sekcijoje title + subtitle +short
+
+problem sekcija h2_problem_title + problem_description + problem_image, jei yra.
+į li sekciją - problem items
+
+analogiškai kitos sekcijos.
+
+Faq title ir description: jei areas endpointe tuščia -> imam iš global
+
+Jei areas turi children - rodome areas card sekcija, jei ne - nerodome
+
+related services - rodome visas services įrašus, jų ten bus 2 arba 3
+
+related posts - rodysime susijusiu articles, kol kas dar nėra logikos pagal ką filtruoti. yra pamąstymų, kad arba pagal tagus arba pagal categories, bet kol kas nieko nėra. Arba padaryti susiejimą ir parinkti konkrečius. Norėčiau pasiūlymų atsižvelgiant į seo ir našumą, taupant api užklausas.
+
+Tarp process ir susijusios paslaugos reiki įterpti sekciją kodėl mes iš apie mane kolekcijos. visą kaip yra visuose areas.
+
 endpointai:
 
 https://veb.inultimo.lt/items/areas
@@ -139,4 +163,64 @@ https://veb.inultimo.lt/items/solution_items
 "icon": null
 }
 ]
+}
+
+https://veb.inultimo.lt/items/services
+
+{
+"data": [
+{
+"id": "803d6aac-dafb-4162-a3b0-5f96da3952ac",
+"status": "published",
+"sort": 1,
+"apie_mane": "efad58db-160d-4dae-8ab8-7cc63f66c81e",
+"json_ld": "{\n \"@context\": \"https://schema.org\",\n \"@graph\": [\n {\n \"@type\": \"Service\",\n \"@id\": \"https://tavo-domenas.lt/paslaugos/dokumentu-rengimas/#service\",\n \"name\": \"Teisinis dokumentų rengimas nuotoliu\",\n \"serviceType\": \"Legal Document Preparation\",\n \"description\": \"Profesionalus procesinių dokumentų, sutarčių ir ieškinių rengimas. Viskas vyksta el. būdu, pasirašant saugiu el. parašu.\",\n \"provider\": {\n \"@id\": \"https://tavo-domenas.lt/#organization\"\n },\n \"areaServed\": [\n { \"@type\": \"Country\", \"name\": \"Lithuania\" },\n { \"@type\": \"Country\", \"name\": \"Norway\" }\n ],\n \"hasOfferCatalog\": {\n \"@type\": \"OfferCatalog\",\n \"name\": \"Teisinės paslaugos\",\n \"itemListElement\": [\n {\n \"@type\": \"Offer\",\n \"itemOffered\": {\n \"@type\": \"Service\",\n \"name\": \"Santuokos nutraukimo dokumentai\",\n \"description\": \"Pilnas dokumentų paketas teismui.\"\n }\n },\n {\n \"@type\": \"Offer\",\n \"itemOffered\": {\n \"@type\": \"Service\",\n \"name\": \"Nuotolinė teisinė konsultacija\",\n \"description\": \"30-60 min. pokalbis per Zoom arba MS Teams.\"\n }\n }\n ]\n }\n },\n {\n \"@type\": \"FAQPage\",\n \"@id\": \"https://tavo-domenas.lt/paslaugos/dokumentu-rengimas/#faq\",\n \"mainEntity\": [\n {\n \"@type\": \"Question\",\n \"name\": \"Kaip vyksta dokumentų pasirašymas$1\",\n \"acceptedAnswer\": {\n \"@type\": \"Answer\",\n \"text\": \"Visi dokumentai paruošiami PDF formatu ir pasirašomi kvalifikuotu elektroniniu parašu (Smart-ID arba Mobile-ID), todėl jums nereikia niekur vykti.\"\n }\n },\n {\n \"@type\": \"Question\",\n \"name\": \"Ar konsultacija teikiama tik darbo valandomis$2\",\n \"acceptedAnswer\": {\n \"@type\": \"Answer\",\n \"text\": \"Konsultacijų laiką deriname individualiai, atsižvelgdami į laiko zonų skirtumus, jei gyvenate užsienyje.\"\n }\n }\n ]\n }\n ]\n}",
+"title_h1": "Teisinė konsultacija",
+"short_description": "Teisinės konsultacijos nuotoliniu būdu. Teisinės konsultacijos nuotoliniu būduTeisinės konsultacijos nuotoliniu būduTeisinės konsultacijos nuotoliniu būduTeisinės konsultacijos nuotoliniu būdu",
+"subtitle": "Šeimos teisė, Skyrybos, Vaikų ir turto klausimai",
+"slug": "teisine-konsultacija",
+"icon": "messages-square"
+},
+{
+"id": "12494d40-f130-4cb2-8c2d-3a29c32c4141",
+"status": "published",
+"sort": 2,
+"apie_mane": "efad58db-160d-4dae-8ab8-7cc63f66c81e",
+"json_ld": "{\n \"@context\": \"https://schema.org\",\n \"@graph\": [\n {\n \"@type\": \"Service\",\n \"@id\": \"https://tavo-domenas.lt/paslaugos/dokumentu-rengimas/#service\",\n \"name\": \"Teisinis dokumentų rengimas nuotoliu\",\n \"serviceType\": \"Legal Document Preparation\",\n \"description\": \"Profesionalus procesinių dokumentų, sutarčių ir ieškinių rengimas. Viskas vyksta el. būdu, pasirašant saugiu el. parašu.\",\n \"provider\": {\n \"@id\": \"https://tavo-domenas.lt/#organization\"\n },\n \"areaServed\": [\n { \"@type\": \"Country\", \"name\": \"Lithuania\" },\n { \"@type\": \"Country\", \"name\": \"Norway\" }\n ],\n \"hasOfferCatalog\": {\n \"@type\": \"OfferCatalog\",\n \"name\": \"Teisinės paslaugos\",\n \"itemListElement\": [\n {\n \"@type\": \"Offer\",\n \"itemOffered\": {\n \"@type\": \"Service\",\n \"name\": \"Santuokos nutraukimo dokumentai\",\n \"description\": \"Pilnas dokumentų paketas teismui.\"\n }\n },\n {\n \"@type\": \"Offer\",\n \"itemOffered\": {\n \"@type\": \"Service\",\n \"name\": \"Nuotolinė teisinė konsultacija\",\n \"description\": \"30-60 min. pokalbis per Zoom arba MS Teams.\"\n }\n }\n ]\n }\n },\n {\n \"@type\": \"FAQPage\",\n \"@id\": \"https://tavo-domenas.lt/paslaugos/dokumentu-rengimas/#faq\",\n \"mainEntity\": [\n {\n \"@type\": \"Question\",\n \"name\": \"Kaip vyksta dokumentų pasirašymas$1\",\n \"acceptedAnswer\": {\n \"@type\": \"Answer\",\n \"text\": \"Visi dokumentai paruošiami PDF formatu ir pasirašomi kvalifikuotu elektroniniu parašu (Smart-ID arba Mobile-ID), todėl jums nereikia niekur vykti.\"\n }\n },\n {\n \"@type\": \"Question\",\n \"name\": \"Ar konsultacija teikiama tik darbo valandomis$2\",\n \"acceptedAnswer\": {\n \"@type\": \"Answer\",\n \"text\": \"Konsultacijų laiką deriname individualiai, atsižvelgdami į laiko zonų skirtumus, jei gyvenate užsienyje.\"\n }\n }\n ]\n }\n ]\n}",
+"title_h1": "Teisinių dokumentų rengimas",
+"short_description": "Teisinių ir procesinių dokumentų rengimas Teisinių ir procesinių dokumentų rengimasTeisinių ir procesinių dokumentų rengimas Teisinių ir procesinių dokumentų rengimasTeisinių ir procesinių dokumentų rengimas",
+"subtitle": "Skyrbų dokumentai ir kiti procesiniai dokumentai",
+"slug": "teisiniu-dokumentu-rengimas",
+"icon": "file-text"
+},
+{
+"id": "7ae6dc0a-ecaa-43d6-8e6c-806b19fe12aa",
+"status": "draft",
+"sort": 3,
+"apie_mane": "efad58db-160d-4dae-8ab8-7cc63f66c81e",
+"json_ld": "{\n \"@context\": \"https://schema.org\",\n \"@graph\": [\n {\n \"@type\": \"Service\",\n \"@id\": \"https://tavo-domenas.lt/paslaugos/dokumentu-rengimas/#service\",\n \"name\": \"Teisinis dokumentų rengimas nuotoliu\",\n \"serviceType\": \"Legal Document Preparation\",\n \"description\": \"Profesionalus procesinių dokumentų, sutarčių ir ieškinių rengimas. Viskas vyksta el. būdu, pasirašant saugiu el. parašu.\",\n \"provider\": {\n \"@id\": \"https://tavo-domenas.lt/#organization\"\n },\n \"areaServed\": [\n { \"@type\": \"Country\", \"name\": \"Lithuania\" },\n { \"@type\": \"Country\", \"name\": \"Norway\" }\n ],\n \"hasOfferCatalog\": {\n \"@type\": \"OfferCatalog\",\n \"name\": \"Teisinės paslaugos\",\n \"itemListElement\": [\n {\n \"@type\": \"Offer\",\n \"itemOffered\": {\n \"@type\": \"Service\",\n \"name\": \"Santuokos nutraukimo dokumentai\",\n \"description\": \"Pilnas dokumentų paketas teismui.\"\n }\n },\n {\n \"@type\": \"Offer\",\n \"itemOffered\": {\n \"@type\": \"Service\",\n \"name\": \"Nuotolinė teisinė konsultacija\",\n \"description\": \"30-60 min. pokalbis per Zoom arba MS Teams.\"\n }\n }\n ]\n }\n },\n {\n \"@type\": \"FAQPage\",\n \"@id\": \"https://tavo-domenas.lt/paslaugos/dokumentu-rengimas/#faq\",\n \"mainEntity\": [\n {\n \"@type\": \"Question\",\n \"name\": \"Kaip vyksta dokumentų pasirašymas$1\",\n \"acceptedAnswer\": {\n \"@type\": \"Answer\",\n \"text\": \"Visi dokumentai paruošiami PDF formatu ir pasirašomi kvalifikuotu elektroniniu parašu (Smart-ID arba Mobile-ID), todėl jums nereikia niekur vykti.\"\n }\n },\n {\n \"@type\": \"Question\",\n \"name\": \"Ar konsultacija teikiama tik darbo valandomis$2\",\n \"acceptedAnswer\": {\n \"@type\": \"Answer\",\n \"text\": \"Konsultacijų laiką deriname individualiai, atsižvelgdami į laiko zonų skirtumus, jei gyvenate užsienyje.\"\n }\n }\n ]\n }\n ]\n}",
+"title_h1": "Atstovavimas",
+"short_description": "Atstovavimas teisme",
+"subtitle": null,
+"slug": "atstovavimas",
+"icon": null
+}
+]
+}
+
+https://veb.inultimo.lt/items/services/803d6aac-dafb-4162-a3b0-5f96da3952ac
+
+{
+"data": {
+"id": "803d6aac-dafb-4162-a3b0-5f96da3952ac",
+"status": "published",
+"sort": 1,
+"apie_mane": "efad58db-160d-4dae-8ab8-7cc63f66c81e",
+"json_ld": "{\n \"@context\": \"https://schema.org\",\n \"@graph\": [\n {\n \"@type\": \"Service\",\n \"@id\": \"https://tavo-domenas.lt/paslaugos/dokumentu-rengimas/#service\",\n \"name\": \"Teisinis dokumentų rengimas nuotoliu\",\n \"serviceType\": \"Legal Document Preparation\",\n \"description\": \"Profesionalus procesinių dokumentų, sutarčių ir ieškinių rengimas. Viskas vyksta el. būdu, pasirašant saugiu el. parašu.\",\n \"provider\": {\n \"@id\": \"https://tavo-domenas.lt/#organization\"\n },\n \"areaServed\": [\n { \"@type\": \"Country\", \"name\": \"Lithuania\" },\n { \"@type\": \"Country\", \"name\": \"Norway\" }\n ],\n \"hasOfferCatalog\": {\n \"@type\": \"OfferCatalog\",\n \"name\": \"Teisinės paslaugos\",\n \"itemListElement\": [\n {\n \"@type\": \"Offer\",\n \"itemOffered\": {\n \"@type\": \"Service\",\n \"name\": \"Santuokos nutraukimo dokumentai\",\n \"description\": \"Pilnas dokumentų paketas teismui.\"\n }\n },\n {\n \"@type\": \"Offer\",\n \"itemOffered\": {\n \"@type\": \"Service\",\n \"name\": \"Nuotolinė teisinė konsultacija\",\n \"description\": \"30-60 min. pokalbis per Zoom arba MS Teams.\"\n }\n }\n ]\n }\n },\n {\n \"@type\": \"FAQPage\",\n \"@id\": \"https://tavo-domenas.lt/paslaugos/dokumentu-rengimas/#faq\",\n \"mainEntity\": [\n {\n \"@type\": \"Question\",\n \"name\": \"Kaip vyksta dokumentų pasirašymas$1\",\n \"acceptedAnswer\": {\n \"@type\": \"Answer\",\n \"text\": \"Visi dokumentai paruošiami PDF formatu ir pasirašomi kvalifikuotu elektroniniu parašu (Smart-ID arba Mobile-ID), todėl jums nereikia niekur vykti.\"\n }\n },\n {\n \"@type\": \"Question\",\n \"name\": \"Ar konsultacija teikiama tik darbo valandomis$2\",\n \"acceptedAnswer\": {\n \"@type\": \"Answer\",\n \"text\": \"Konsultacijų laiką deriname individualiai, atsižvelgdami į laiko zonų skirtumus, jei gyvenate užsienyje.\"\n }\n }\n ]\n }\n ]\n}",
+"title_h1": "Teisinė konsultacija",
+"short_description": "Teisinės konsultacijos nuotoliniu būdu. Teisinės konsultacijos nuotoliniu būduTeisinės konsultacijos nuotoliniu būduTeisinės konsultacijos nuotoliniu būduTeisinės konsultacijos nuotoliniu būdu",
+"subtitle": "Šeimos teisė, Skyrybos, Vaikų ir turto klausimai",
+"slug": "teisine-konsultacija",
+"icon": "messages-square"
+}
 }

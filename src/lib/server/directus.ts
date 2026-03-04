@@ -14,6 +14,9 @@ export type Site = {
 	logo_dark?: string | null;
 	contact_email?: string;
 	contact_phone?: string;
+	faq_title?: string | null;
+	faq_short?: string | null;
+	faq_description?: string | null;
 	google_analytics_id?: string | null;
 	facebook_pixel_id?: string | null;
 	tag_manager_id?: string | null;
@@ -83,8 +86,47 @@ export type Service = {
 	title_h1?: string;
 	short_description?: string;
 	description_short?: string;
+	service_image?: string | null;
 	slug?: string;
 	icon?: string;
+	[key: string]: unknown;
+};
+
+export type ProblemItem = {
+	id?: string;
+	status?: string;
+	title_h3?: string;
+	short?: string;
+	description?: string;
+	icon?: string | null;
+	[key: string]: unknown;
+};
+
+export type SolutionItem = {
+	id?: string;
+	status?: string;
+	title_h3?: string;
+	short?: string;
+	description?: string;
+	icon?: string | null;
+	[key: string]: unknown;
+};
+
+export type ProcessStep = {
+	id?: string;
+	status?: string;
+	title_h3?: string;
+	description?: string;
+	icon?: string | null;
+	[key: string]: unknown;
+};
+
+export type FaqItem = {
+	id?: string;
+	status?: string;
+	question?: string;
+	answer?: string;
+	icon?: string | null;
 	[key: string]: unknown;
 };
 
@@ -108,10 +150,42 @@ export type Seminar = {
 export type Area = {
 	id: string;
 	h1_title?: string;
+	label?: string;
+	subtitle?: string;
 	short_description?: string;
+	description?: string;
 	icon?: string;
 	full_path?: string;
 	status?: string;
+	parent?: string | null;
+	general_image?: string | null;
+	tags?: unknown;
+	h2_problem_title?: string;
+	problem_short?: string;
+	problem_description?: string | null;
+	problem_image?: string | null;
+	h2_solution_title?: string;
+	solution_short?: string;
+	solution_description?: string | null;
+	solution_image?: string | null;
+	h2_process_title?: string;
+	process_short?: string;
+	process_image?: string | null;
+	faq_title_h2?: string;
+	faq_short?: string;
+	faq_description?: string | null;
+	json_ld?: string | null;
+	seo?: SeoFields;
+	children?: unknown;
+	problem_item?: unknown;
+	solution_item?: unknown;
+	process_step?: unknown;
+	faq_item?: unknown;
+	faq_anchor?: string | null;
+	process_anchor?: string | null;
+	solution_anchor?: string | null;
+	problem_anchor?: string | null;
+	apie_mane?: string | null;
 	[key: string]: unknown;
 };
 
@@ -122,7 +196,7 @@ export type Article = {
 	short_description?: string;
 	article?: string;
 	slug?: string;
-	tags?: string[];
+	tags?: unknown;
 	status?: string;
 	date_created?: string;
 	date_updated?: string;
@@ -132,7 +206,22 @@ export type Article = {
 	[key: string]: unknown;
 };
 
-export type NavigationItemType = 'url' | 'pages' | 'areas' | 'articles' | 'services' | 'group' | string;
+export type Tag = {
+	id?: string;
+	sort?: number | null;
+	name?: string;
+	slug?: string;
+	[key: string]: unknown;
+};
+
+export type NavigationItemType =
+	| 'url'
+	| 'pages'
+	| 'areas'
+	| 'articles'
+	| 'services'
+	| 'group'
+	| string;
 
 export type NavigationItem = {
 	id?: string;
@@ -170,8 +259,13 @@ export type DirectusSchema = {
 	seminarai: Seminar[];
 	pages: Page[];
 	services: Service[];
+	tags: Tag[];
 	areas: Area[];
 	articles: Article[];
+	problem_items: ProblemItem[];
+	solution_items: SolutionItem[];
+	process_steps: ProcessStep[];
+	faq_items: FaqItem[];
 	navigation: Navigation[];
 	navigation_items: NavigationItem[];
 };
