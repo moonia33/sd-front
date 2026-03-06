@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+
 	type BreadcrumbItem = {
 		label: string;
 		href?: string;
@@ -9,6 +11,12 @@
 		{ label: 'App Center', href: '/' },
 		{ label: 'Application' }
 	];
+
+	function toRoute(href: string): `/${string}` {
+		const trimmed = href.trim();
+		const normalized = trimmed.startsWith('/') ? trimmed : `/${trimmed}`;
+		return normalized as `/${string}`;
+	}
 </script>
 
 <div class="relative mb-8 overflow-hidden bg-white pt-4 dark:bg-black">
@@ -111,7 +119,7 @@
 							{#if item.href && index !== items.length - 1}
 								<a
 									class="flex items-center text-sm text-gray-500 hover:text-blue-700 focus:text-blue-700 focus:outline-hidden dark:text-neutral-400 dark:hover:text-blue-600 dark:focus:text-blue-600"
-									href={item.href}
+									href={resolve(toRoute(item.href))}
 								>
 									{item.label}
 								</a>

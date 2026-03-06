@@ -8,6 +8,7 @@
 	import RelatedServices from '$lib/components/RalatedServices/related-services.svelte';
 	import AreasCard from '$lib/components/AreasCard/areas-card.svelte';
 	import RelatedPosts from '$lib/components/RelatedPosts/related-posts.svelte';
+	import ButtonAnimated from '$lib/components/ButtonAnimated/rotateborder.svelte';
 </script>
 
 <svelte:head>
@@ -19,6 +20,7 @@
 <Areashero />
 <section id="problema" class="bg-white py-14 dark:bg-black">
 	<ProblemCard />
+	<ButtonAnimated />
 </section>
 <section id="areas" class="bg-gray-100 py-14 dark:bg-gray-950">
 	<AreasCard />

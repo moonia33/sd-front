@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+
 	type PostItem = {
 		id?: string;
 		title: string;
@@ -43,7 +45,8 @@
 	function normalizeHref(href: string | undefined) {
 		const trimmed = href?.trim();
 		if (!trimmed || trimmed === '#') return null;
-		return trimmed;
+		const normalized = trimmed.startsWith('/') ? trimmed : `/${trimmed}`;
+		return normalized as `/${string}`;
 	}
 </script>
 
@@ -63,10 +66,11 @@
 	<!-- Grid -->
 	<div class="mb-10 grid gap-6 sm:grid-cols-2 lg:mb-14 lg:grid-cols-4">
 		{#each items as item (item.id ?? item.title)}
-			{@const href = normalizeHref(item.href) ?? ctaHref}
+			{@const href =
+				normalizeHref(item.href) ?? normalizeHref(ctaHref) ?? ('/ziniu-centras' as `/${string}`)}
 			<a
 				class="group flex flex-col rounded-xl border border-gray-200 bg-white shadow-2xs transition hover:shadow-md focus:shadow-md focus:outline-hidden dark:border-neutral-700 dark:bg-neutral-800"
-				{href}
+				href={resolve(href)}
 			>
 				<div class="aspect-w-16 aspect-h-9 bg-gray-100 dark:bg-neutral-700">
 					{#if item.imageUrl}
@@ -99,7 +103,7 @@
 				<p class="text-gray-600 dark:text-neutral-300">Norite daugiau?</p>
 				<a
 					class="inline-flex items-center gap-x-1.5 font-medium text-blue-600 decoration-2 hover:underline focus:underline focus:outline-hidden dark:text-blue-500"
-					href={ctaHref}
+					href={resolve(normalizeHref(ctaHref) ?? ('/ziniu-centras' as `/${string}`))}
 				>
 					{ctaLabel}
 					<svg

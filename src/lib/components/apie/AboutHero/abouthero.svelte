@@ -1,7 +1,9 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+
 	type Props = {
-		imageUrl?: string | null;
 		title?: string;
+		imageUrl?: string | null;
 		santrauka?: string;
 		descriptionHtml?: string;
 		legalName?: string;
@@ -11,8 +13,8 @@
 	};
 
 	let {
-		imageUrl = null,
 		title = '',
+		imageUrl = null,
 		santrauka = '',
 		descriptionHtml = '',
 		legalName = '',
@@ -31,7 +33,11 @@
 	<div class="md:grid md:grid-cols-3 md:items-center md:gap-10 lg:gap-16">
 		<div class="mb-24 hidden sm:px-6 md:mb-0 md:block">
 			<div class="relative">
-				<img class="rounded-xl" src={imageUrl || fallbackImage} alt="Avatar" />
+				<img
+					class="rounded-xl"
+					src={imageUrl || fallbackImage}
+					alt={title.trim() || legalName.trim() || 'Avatar'}
+				/>
 
 				<!-- SVG Element -->
 				<div class="absolute inset-s-0 bottom-0 -z-1 -translate-x-14 translate-y-10">
@@ -123,6 +129,7 @@
 					</p>
 
 					<div class="text-xl text-gray-800 dark:text-neutral-200">
+						<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 						{@html descriptionHtml}
 					</div>
 				</div>
@@ -130,7 +137,11 @@
 				<footer class="mt-6">
 					<div class="flex items-center">
 						<div class="shrink-0 md:hidden">
-							<img class="size-12 rounded-full" src={imageUrl || fallbackImage} alt="Avatar" />
+							<img
+								class="size-12 rounded-full"
+								src={imageUrl || fallbackImage}
+								alt={title.trim() || legalName.trim() || 'Avatar'}
+							/>
 						</div>
 						<div class="ms-4 md:ms-0">
 							<div class="font-script text-5xl text-gray-800 dark:text-neutral-200">
@@ -144,12 +155,23 @@
 				</footer>
 
 				<div class="mt-8 lg:mt-14">
-					<a
-						class="inline-flex items-center gap-x-2 rounded-lg border border-transparent bg-gray-900 px-4 py-3 text-sm font-medium text-white hover:bg-gray-800 focus:bg-gray-800 focus:outline-hidden disabled:pointer-events-none disabled:opacity-50 dark:bg-white dark:text-neutral-800 dark:hover:bg-neutral-100 dark:focus:bg-neutral-100"
-						href={ctaLink}
-					>
-						{ctaLabel}
-					</a>
+					{#if ctaLink.startsWith('/')}
+						<a
+							class="inline-flex items-center gap-x-2 rounded-lg border border-transparent bg-gray-900 px-4 py-3 text-sm font-medium text-white hover:bg-gray-800 focus:bg-gray-800 focus:outline-hidden disabled:pointer-events-none disabled:opacity-50 dark:bg-white dark:text-neutral-800 dark:hover:bg-neutral-100 dark:focus:bg-neutral-100"
+							href={resolve(ctaLink as `/${string}`)}
+						>
+							{ctaLabel}
+						</a>
+					{:else}
+						<!-- eslint-disable svelte/no-navigation-without-resolve -->
+						<a
+							class="inline-flex items-center gap-x-2 rounded-lg border border-transparent bg-gray-900 px-4 py-3 text-sm font-medium text-white hover:bg-gray-800 focus:bg-gray-800 focus:outline-hidden disabled:pointer-events-none disabled:opacity-50 dark:bg-white dark:text-neutral-800 dark:hover:bg-neutral-100 dark:focus:bg-neutral-100"
+							href={ctaLink}
+						>
+							{ctaLabel}
+						</a>
+						<!-- eslint-enable svelte/no-navigation-without-resolve -->
+					{/if}
 				</div>
 			</blockquote>
 			<!-- End Blockquote -->

@@ -14,6 +14,22 @@
 		const date = new Date(dateIso);
 		return Number.isNaN(date.getTime()) ? '' : dateFormatter.format(date);
 	}
+
+	function buildJsonLdScript(jsonLd: string) {
+		const trimmed = jsonLd.trim();
+		if (!trimmed) return '';
+
+		if (/^<script[\s>]/i.test(trimmed)) return trimmed;
+
+		try {
+			const parsed = JSON.parse(trimmed);
+			const safeJson = JSON.stringify(parsed).replace(/<\//g, '<\\/');
+			return '<script type="application/ld+json">' + safeJson + '</scr' + 'ipt>';
+		} catch (_err) {
+			void _err;
+			return '';
+		}
+	}
 </script>
 
 <svelte:head>
@@ -22,9 +38,8 @@
 		<meta name="description" content={data.seo.meta_description} />
 	{/if}
 	{#if data.jsonLd}
-		<script type="application/ld+json">
-{@html data.jsonLd}
-		</script>
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+		{@html buildJsonLdScript(data.jsonLd)}
 	{/if}
 </svelte:head>
 
@@ -90,6 +105,7 @@
 
 	{#if data.article.contentHtml}
 		<div class="mt-8">
+			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 			{@html data.article.contentHtml}
 		</div>
 	{:else}

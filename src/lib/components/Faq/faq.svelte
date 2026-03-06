@@ -53,6 +53,7 @@
 				{/if}
 				{#if descriptionHtml}
 					<div class="mt-4 hidden text-gray-600 md:block dark:text-neutral-300">
+						<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 						{@html descriptionHtml}
 					</div>
 				{/if}
@@ -113,7 +114,10 @@
 							role="region"
 							aria-labelledby={headingId}
 						>
-							<div class="text-gray-600 dark:text-neutral-300">{@html item.answerHtml}</div>
+							<div class="text-gray-600 dark:text-neutral-300">
+								<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+								{@html item.answerHtml}
+							</div>
 						</div>
 					</div>
 				{/each}

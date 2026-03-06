@@ -26,6 +26,7 @@
 			{/if}
 			{#if descriptionHtml}
 				<div class="mt-4 text-gray-600 dark:text-neutral-300">
+					<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 					{@html descriptionHtml}
 				</div>
 			{/if}
@@ -63,6 +64,7 @@
 						{/if}
 						{#if item.descriptionHtml}
 							<div class="mt-2 text-gray-600 dark:text-neutral-300">
+								<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 								{@html item.descriptionHtml}
 							</div>
 						{/if}

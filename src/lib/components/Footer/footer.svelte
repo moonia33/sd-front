@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base, resolve } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import type { NavLink } from '$lib/types/navigation';
 
 	type SiteLike = {
@@ -12,12 +12,10 @@
 
 	let { site, menuItems } = $props<{ site?: SiteLike | null; menuItems?: NavLink[] }>();
 
-	function isInternalHref(href: string) {
-		return href.startsWith('/');
-	}
-
-	function withBase(href: string) {
-		return `${base}${href}`;
+	function toRoute(href: string): `/${string}` {
+		const trimmed = href.trim();
+		const normalized = trimmed.startsWith('/') ? trimmed : `/${trimmed}`;
+		return normalized as `/${string}`;
 	}
 </script>
 
@@ -73,7 +71,7 @@
 								<p>
 									<a
 										class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current dark:text-neutral-300 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
-										href={isInternalHref(link.href) ? withBase(link.href) : link.href}
+										href={resolve(toRoute(link.href))}
 									>
 										{link.title}
 									</a>
@@ -84,7 +82,7 @@
 						<p>
 							<a
 								class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current dark:text-neutral-300 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
-								href={isInternalHref(section.href) ? withBase(section.href) : section.href}
+								href={resolve(toRoute(section.href))}
 							>
 								{section.title}
 							</a>
@@ -104,6 +102,7 @@
 					<div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
 						{#each site.profiles as p (p.link)}
 							{#if p?.link}
+								<!-- eslint-disable svelte/no-navigation-without-resolve -->
 								<a
 									class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current dark:text-neutral-300 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
 									href={p.link}
@@ -112,6 +111,7 @@
 								>
 									{p.profile_title ?? p.link}
 								</a>
+								<!-- eslint-enable svelte/no-navigation-without-resolve -->
 							{/if}
 						{/each}
 					</div>

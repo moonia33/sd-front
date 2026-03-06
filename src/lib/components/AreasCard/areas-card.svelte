@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+
 	type AreaCardItem = {
 		id?: string;
 		title: string;
@@ -23,7 +25,8 @@
 	function normalizeHref(href: string | undefined) {
 		const trimmed = href?.trim();
 		if (!trimmed) return null;
-		return trimmed.startsWith('/') ? trimmed : `/${trimmed}`;
+		const normalized = trimmed.startsWith('/') ? trimmed : `/${trimmed}`;
+		return normalized as `/${string}`;
 	}
 </script>
 
@@ -41,7 +44,7 @@
 			{#if href}
 				<a
 					class="group flex flex-col rounded-xl border border-gray-200 bg-white shadow-2xs transition hover:shadow-md focus:shadow-md focus:outline-hidden dark:border-neutral-700 dark:bg-neutral-800"
-					{href}
+					href={resolve(href)}
 				>
 					<div class="p-4 md:p-5">
 						<div class="flex items-center justify-between gap-x-3">

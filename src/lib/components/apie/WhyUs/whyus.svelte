@@ -21,6 +21,7 @@
 					{heading}
 				</h2>
 				<div class=" text-gray-900 dark:text-neutral-300">
+					<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 					{@html descriptionHtml}
 				</div>
 			</div>
@@ -34,7 +35,7 @@
 				<ul
 					class="grid grid-cols-2 divide-x divide-x-2 divide-y divide-y-2 divide-gray-300 overflow-hidden dark:divide-neutral-700"
 				>
-					{#each stats.slice(0, 4) as item}
+					{#each stats.slice(0, 4) as item (item.stats)}
 						<li class="-m-0.5 flex flex-col p-4 sm:p-8">
 							<div
 								class="font-semi-bold mb-2 flex items-end gap-x-2 text-3xl text-gray-800 sm:text-3xl dark:text-neutral-200"

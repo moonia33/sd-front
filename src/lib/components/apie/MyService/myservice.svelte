@@ -1,5 +1,6 @@
 <!-- Icon Blocks -->
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { icons } from '@lucide/svelte';
 	import type { Component } from 'svelte';
 
@@ -55,11 +56,15 @@
 			<h2 class="text-2xl font-semibold text-gray-800 lg:text-2xl dark:text-neutral-200">
 				{heading}
 			</h2>
-			<div class="mt-3 text-gray-800 dark:text-neutral-200">{@html descriptionHtml}</div>
+			<div class="mt-3 text-gray-800 dark:text-neutral-200">
+				<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+				{@html descriptionHtml}
+			</div>
 		</div>
 
 		<div class="space-y-6 lg:space-y-10">
-			{#each items as service}
+			{#each items as service (service.slug)}
+				{@const href = serviceHref(service.slug)}
 				{@const Icon = resolveIcon(service.icon)}
 				<div class="flex gap-x-5 sm:gap-x-8">
 					{#if Icon}
@@ -76,10 +81,10 @@
 							{service.description}
 						</p>
 
-						{#if serviceHref(service.slug)}
+						{#if href}
 							<a
 								class="mt-2 inline-flex cursor-pointer text-sm font-semibold text-gray-800 hover:underline dark:text-neutral-200"
-								href={serviceHref(service.slug) ?? '/'}
+								href={resolve(href as `/${string}`)}
 							>
 								Plačiau
 							</a>

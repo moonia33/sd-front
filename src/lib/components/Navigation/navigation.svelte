@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base, resolve } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import type { NavLink } from '$lib/types/navigation';
 	import { icons } from '@lucide/svelte';
 	import type { Component } from 'svelte';
@@ -12,14 +12,6 @@
 		logoTitle?: string;
 		menuItems?: NavLink[];
 	}>();
-
-	function isInternalHref(href: string) {
-		return href.startsWith('/');
-	}
-
-	function withBase(href: string) {
-		return `${base}${href}`;
-	}
 
 	function splitTwoColumns(items: NavLink[]): [NavLink[], NavLink[]] {
 		const mid = Math.ceil(items.length / 2);
@@ -47,6 +39,12 @@
 
 		const iconMap = icons as unknown as Record<string, Component>;
 		return iconMap[trimmed] ?? iconMap[normalizeIconName(trimmed)] ?? null;
+	}
+
+	function toRoute(href: string): `/${string}` {
+		const trimmed = href.trim();
+		const normalized = trimmed.startsWith('/') ? trimmed : `/${trimmed}`;
+		return normalized as `/${string}`;
 	}
 </script>
 
@@ -174,9 +172,7 @@
 															{@const Icon = resolveIcon(child.iconName)}
 															<a
 																class="group text-navbar-nav-foreground hover:bg-navbar-nav-hover focus:bg-navbar-nav-focus flex gap-x-4 rounded-lg p-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
-																href={isInternalHref(child.href)
-																	? withBase(child.href)
-																	: child.href}
+																href={resolve(toRoute(child.href))}
 															>
 																{#if Icon}
 																	<Icon
@@ -202,9 +198,7 @@
 															{@const Icon = resolveIcon(child.iconName)}
 															<a
 																class="group text-navbar-nav-foreground hover:bg-navbar-nav-hover focus:bg-navbar-nav-focus flex gap-x-4 rounded-lg p-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
-																href={isInternalHref(child.href)
-																	? withBase(child.href)
-																	: child.href}
+																href={resolve(toRoute(child.href))}
 															>
 																{#if Icon}
 																	<Icon
@@ -232,7 +226,7 @@
 						{:else if item.href}
 							<a
 								class="text-navbar-nav-foreground hover:text-muted-foreground-1 focus:text-muted-foreground-1 py-3 font-medium focus:outline-hidden md:py-6"
-								href={isInternalHref(item.href) ? withBase(item.href) : item.href}
+								href={resolve(toRoute(item.href))}
 							>
 								{item.title}
 							</a>

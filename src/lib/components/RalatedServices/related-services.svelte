@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+
 	type ServiceItem = {
 		id?: string;
 		title: string;
@@ -34,10 +36,13 @@
 		]
 	}: Props = $props();
 
+	const headingLines = $derived(heading.split('\n'));
+
 	function normalizeHref(href: string | undefined) {
 		const trimmed = href?.trim();
 		if (!trimmed || trimmed === '#') return null;
-		return trimmed;
+		if (!trimmed.startsWith('/')) return null;
+		return trimmed as `/${string}`;
 	}
 </script>
 
@@ -45,7 +50,9 @@
 <div class="mx-auto max-w-340 px-4 xl:px-0">
 	<div class="pb-12">
 		<h2 class="text-2xl font-bold text-gray-800 md:text-4xl md:leading-tight dark:text-neutral-200">
-			{@html heading.replace(/\n/g, '<br />')}
+			{#each headingLines as line, i (i)}
+				{line}{#if i < headingLines.length - 1}<br />{/if}
+			{/each}
 		</h2>
 	</div>
 	<!-- Grid -->
@@ -53,7 +60,7 @@
 		{#each items as item (item.id ?? item.title)}
 			{@const href = normalizeHref(item.href)}
 			{#if href}
-				<a class="group rounded-xl focus:outline-hidden sm:flex" {href}>
+				<a class="group rounded-xl focus:outline-hidden sm:flex" href={resolve(href)}>
 					<div
 						class="relative h-50 w-full shrink-0 overflow-hidden rounded-xl bg-gray-100 sm:h-50 sm:w-62.5 dark:bg-neutral-700"
 					>

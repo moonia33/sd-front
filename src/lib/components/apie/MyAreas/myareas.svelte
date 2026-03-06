@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { icons } from '@lucide/svelte';
 	import type { Component } from 'svelte';
 
@@ -43,7 +44,8 @@
 	function normalizePath(fullPath: string) {
 		const trimmed = fullPath.trim();
 		if (!trimmed) return null;
-		return trimmed.startsWith('/') ? trimmed : `/${trimmed}`;
+		const normalized = trimmed.startsWith('/') ? trimmed : `/${trimmed}`;
+		return normalized as `/${string}`;
 	}
 </script>
 
@@ -59,7 +61,10 @@
 			</h2>
 		{/if}
 		{#if descriptionHtml}
-			<div class="mt-1 text-gray-700 dark:text-neutral-400">{@html descriptionHtml}</div>
+			<div class="mt-1 text-gray-700 dark:text-neutral-400">
+				<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+				{@html descriptionHtml}
+			</div>
 		{/if}
 	</div>
 	<!-- End Title -->
@@ -72,7 +77,7 @@
 			{#if href}
 				<a
 					class="group flex flex-col rounded-xl border border-gray-200 bg-white shadow-2xs transition hover:shadow-md focus:shadow-md focus:outline-hidden dark:border-neutral-700 dark:bg-neutral-800"
-					{href}
+					href={resolve(href)}
 				>
 					<div class="p-4 md:p-5">
 						<div class="flex items-center justify-between gap-x-3">

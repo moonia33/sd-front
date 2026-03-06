@@ -16,6 +16,22 @@
 
 	const hasChildren = $derived(data.childrenAreas.length > 0);
 	const hasFaqItems = $derived(data.faq.items.length > 0);
+
+	function buildJsonLdScript(jsonLd: string) {
+		const trimmed = jsonLd.trim();
+		if (!trimmed) return '';
+
+		if (/^<script[\s>]/i.test(trimmed)) return trimmed;
+
+		try {
+			const parsed = JSON.parse(trimmed);
+			const safeJson = JSON.stringify(parsed).replace(/<\//g, '<\\/');
+			return '<script type="application/ld+json">' + safeJson + '</scr' + 'ipt>';
+		} catch (_err) {
+			void _err;
+			return '';
+		}
+	}
 </script>
 
 <svelte:head>
@@ -24,9 +40,8 @@
 		<meta name="description" content={data.area.seoDescription} />
 	{/if}
 	{#if data.area.jsonLd}
-		<script type="application/ld+json">
-{@html data.area.jsonLd}
-		</script>
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+		{@html buildJsonLdScript(data.area.jsonLd)}
 	{/if}
 </svelte:head>
 

@@ -65,6 +65,7 @@
 						</p>
 						{#if step.descriptionHtml}
 							<div class="mt-2 text-gray-500 dark:text-neutral-400">
+								<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 								{@html step.descriptionHtml}
 							</div>
 						{/if}

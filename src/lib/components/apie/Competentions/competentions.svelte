@@ -17,6 +17,7 @@
 		{heading}
 	</h2>
 	<div class="mt-1 text-gray-800 dark:text-neutral-400">
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		{@html descriptionHtml}
 	</div>
 

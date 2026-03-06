@@ -100,7 +100,7 @@
 									</td>
 								</tr>
 							{:else}
-								{#each pagedItems as seminar}
+								{#each pagedItems as seminar (seminar.data + '|' + seminar.tema)}
 									<tr>
 										<td class="px-6 py-3 whitespace-nowrap">
 											<span class="text-sm text-gray-800 dark:text-neutral-200">{seminar.data}</span

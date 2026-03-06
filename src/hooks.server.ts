@@ -2,7 +2,7 @@ import type { Handle } from '@sveltejs/kit';
 
 export const handle: Handle = async ({ event, resolve }) => {
 	return await resolve(event, {
-		filterSerializedResponseHeaders: (key: string, value: string) => {
+		filterSerializedResponseHeaders: (key: string) => {
 			return key.toLowerCase() === 'content-type';
 		}
 	});

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import Breadcrumb from '$lib/components/BreadCrumb/breadcrumb.svelte';
 	import type { PageData } from './$types';
 
@@ -36,7 +37,7 @@
 					<div class="flex items-start justify-between gap-6">
 						<div class="min-w-0">
 							<a
-								href={`/ziniu-centras/${article.slug}`}
+								href={resolve(`/ziniu-centras/${article.slug}`)}
 								class="text-lg font-semibold text-gray-800 hover:underline dark:text-neutral-200"
 							>
 								{article.title}

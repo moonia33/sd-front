@@ -130,6 +130,7 @@
 	{#if data?.site?.header_scripts}
 		{@const headerScripts = normalizeHeadScripts(data.site.header_scripts)}
 		{#if headerScripts}
+			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 			{@html headerScripts}
 		{/if}
 	{/if}
@@ -169,6 +170,7 @@
 {#if data?.site?.footer_scripts}
 	{@const footerScripts = normalizeBodyScripts(data.site.footer_scripts)}
 	{#if footerScripts}
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		{@html footerScripts}
 	{/if}
 {/if}
